@@ -1,18 +1,19 @@
-# Salesforce DX Project: Next Steps
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+User Story
+We have been given accesses to invoice APIs. Business wants us to show customer invoices on Account in Salesforce. 
+Invoices are exposed though an external API and require some pre-parsing to fit the business needs.
 
-## How Do You Plan to Deploy Your Changes?
+To calculate the invoice balance one must take the amount and subtract the payment.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
 
-## Configure Your Salesforce DX Project
+Acceptance Criteria
+1. Invoices fetched and shown in Salesforce.
+2. Balance is calculated.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Technical Description
+* ENDPOINT: https://customer-database.com/customers/invoices
+* Add customerId as a URL get Parameter.
+* Example response can be found in staticresources/invoices.json
+* The Authentication token can be fetched from the static method in TokenHandler.getToken()
+* and should be added as a bearer token. 
+* We need to calculate the "balance" of each individual invoice

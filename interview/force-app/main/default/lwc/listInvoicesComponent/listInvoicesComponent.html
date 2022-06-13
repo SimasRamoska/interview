@@ -1,0 +1,19 @@
+<!--
+ - Created by heol15 on 13/06/2022.
+ -->
+
+<!-- List Invoices Component -->
+<template>
+    <lightning-card title="Invoices" icon-name="">
+        <div style="height: 300px">
+            <lightning-datatable
+                    key-field="invoice_no"
+                    show-row-number-column="false"
+                    hide-checkbox-column
+                    column-widths-mode="auto"
+                    data={data}
+                    columns={columns}
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
